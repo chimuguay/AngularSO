@@ -1,0 +1,54 @@
+<div class="col-lg-5">
+    <div class="alert alert-danger" role="alert" *ngIf="status == 'error'">
+        Rellene todos los campos
+    </div>
+
+    <div class="alert alert-success" role="alert" *ngIf="status == 'success'">
+            Usuario agregado correctamente, Por favor recargue la pagina para reflejar los cambios
+        </div>
+
+    <h2>Crear Alumno</h2>
+
+    <form #registerForm="ngForm" (ngSubmit)="createUser()" class="col-lg-12">
+        <p>
+            <label>Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.nombre" class="form-control" required>
+        </p>
+
+        <p>
+            <label>Apellidos</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.apellidos" class="form-control" required>
+        </p>
+
+        <p>
+            <label>edad</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.edad" class="form-control"
+                required>
+        </p>
+        <p>
+            <label>sexo</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.sexo" class="form-control"
+                required>
+        </p>
+        <p>
+            <label>dirección</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.direccion" class="form-control"
+                required>
+        </p>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Carreras
+            </button>
+            <div class="dropdown-menu" *ngIf="carreras">
+                <p class="dropdown-item" *ngFor="let carrera of carreras" (click)="setCarrera(carrera.id)">
+                    {{carrera.nombre_carrera}}</p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <input type="submit" value="Agregar" class="btn btn-success">
+    </form>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="col-lg-5">
+
+    <div class="alert alert-danger" role="alert" *ngIf="status == 'error'">
+        Usuario y/o contraseña incorrectos
+    </div>
+
+    <form #loginForm="ngForm" (ngSubmit)="login()" class="col-lg-12">
+
+        <p>
+            <label>Username</label>
+            <input type="text" name="username" #username="ngModel" [(ngModel)]="input.username" class="form-control"
+                required>
+        </p>
+        <p>
+            <label>Contraseña</label>
+            <input type="password" name="passwordl" #password="ngModel" [(ngModel)]="input.password"
+                class="form-control" required>
+        </p>
+        <input type="submit" value="Entrar" name="" class="btn btn-success" [disabled]="!loginForm.form.valid">
+
+    </form>
+</div>

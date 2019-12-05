@@ -50,7 +50,7 @@ export class ApiService {
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
 		return this._http.put(this.baseUrl + 'alumno_detalles/' + id, params, { headers: headers });
 	}
-
+	//ubk
 
 	deleteUser(id, user: User): Observable<any> {
 		let params = JSON.stringify(user);

@@ -14,7 +14,7 @@ export class ApiService {
 	public id;
 
 	constructor(public _http: HttpClient) {
-		this.baseUrl = "http://ec2-100-24-59-152.compute-1.amazonaws.com/api/v1/";
+		this.baseUrl = "ec2-100-24-59-152.compute-1.amazonaws.com/api/v1/";
 	}
 
 
@@ -27,7 +27,7 @@ export class ApiService {
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
 		console.log(params);
-		return this._http.post(this.baseUrl + 'alumnos/', params, { headers: headers });
+		return this._http.post(this.baseUrl + 'alumno_lista/', params, { headers: headers });
 	}
 
 
@@ -37,7 +37,7 @@ export class ApiService {
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
 		console.log(this.token);
 
-		return this._http.get(this.baseUrl + 'alumnos/', { headers: headers });
+		return this._http.get(this.baseUrl + 'alumno_lista/', { headers: headers });
 	}
 
 	getUser(id): Observable<any> {
@@ -48,19 +48,19 @@ export class ApiService {
 	updateUser(id, user: User): Observable<any> {
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
-		return this._http.put(this.baseUrl + 'alumno/' + id, params, { headers: headers });
+		return this._http.put(this.baseUrl + 'alumno_detalles/' + id, params, { headers: headers });
 	}
 
 
 	deleteUser(id, user: User): Observable<any> {
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
-		return this._http.put(this.baseUrl + 'alumno/' + id, params, { headers: headers });
+		return this._http.put(this.baseUrl + 'alumno_detalles/' + id, params, { headers: headers });
 	}
 
 	getCarreras(): Observable<any> {
 		let headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Token ' + this.token);
-		return this._http.get(this.baseUrl + 'carreras/', { headers: headers });
+		return this._http.get(this.baseUrl + 'carrera_lista/', { headers: headers });
 	}
 
 
